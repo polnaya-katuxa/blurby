@@ -1,0 +1,57 @@
+PGA:
+  Host: localhost
+  Port: 5436
+  User: admin
+  Password: password1
+  DBName: coursework
+
+PGT:
+  Host: localhost
+  Port: 5436
+  User: targetologist
+  Password: password2
+  DBName: coursework
+
+PGC:
+  Host: localhost
+  Port: 5436
+  User: client
+  Password: password3
+  DBName: coursework
+
+CH:
+  Host: localhost
+  Port: 9000
+  User: coursework
+  Password: password
+  DBName: coursework
+  Timeout: 10000
+
+Kafka:
+  Brokers:
+    - localhost:9092
+  Version: 7.3.2
+
+SMTP:
+  Host: smtp-relay.sendinblue.com
+  Port: 587
+  Login: katyaakar@ya.ru
+  Password: vIOtKLmn6yfRPXwb
+
+HTTPPort: 8087
+AdminLogin: admin
+AdminPassword: admin
+AdminEmail: admin@admin.ru
+
+DB: clickhouse
+
+Email: Advertisement <ad@blurby.lownie.su>
+TokenExp: 72h
+SecretKey: secretkey
+SpanAd: 10s
+Lim: 30
+
+Logger:
+  Encoding: console
+  Level: debug
+  File: tech.log

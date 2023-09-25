@@ -1,0 +1,57 @@
+PGA:
+  Host: localhost
+  Port: 5436
+  User: admin
+  Password: password1
+  DBName: coursework
+
+PGT:
+  Host: localhost
+  Port: 5436
+  User: targetologist
+  Password: password2
+  DBName: coursework
+
+PGC:
+  Host: localhost
+  Port: 5436
+  User: client
+  Password: password3
+  DBName: coursework
+
+CH:
+  Host: localhost
+  Port: 27017
+  User: postby
+  Password: password
+  DBName: postby
+  Timeout: 10000
+
+Kafka:
+  Brokers:
+    - localhost:9092
+  Version: 7.3.2
+
+SMTP:
+  Host: smtp.yandex.ru
+  Port: 465
+  Login: login
+  Password: password
+
+HTTPPort: 8087
+AdminLogin: admin
+AdminPassword: admin
+AdminEmail: admin@admin.ru
+
+DB: clickhouse
+
+Email: qwerty@yandex.ru
+TokenExp: 72h
+SecretKey: secretkey
+SpanAd: 1d
+Lim: 30
+
+Logger:
+  Encoding: console
+  Level: info
+  File: tech.log

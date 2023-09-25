@@ -1,0 +1,56 @@
+\babel@toc {russian}{}\relax 
+\contentsline {chapter}{РЕФЕРАТ}{2}{chapter*.1}%
+\contentsline {chapter}{ОПРЕДЕЛЕНИЯ}{5}{chapter*.3}%
+\contentsline {chapter}{ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}{6}{chapter*.4}%
+\contentsline {chapter}{ВВЕДЕНИЕ}{7}{chapter*.5}%
+\contentsline {chapter}{\numberline {1}Аналитический раздел}{8}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Анализ предметной области}{8}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Обзор существующих решений}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Формализация задачи}{10}{section.1.3}%
+\contentsline {paragraph}{Формализация пользовательских сценариев}{10}{paragraph*.7}%
+\contentsline {paragraph}{Формализация данных}{11}{paragraph*.9}%
+\contentsline {section}{\numberline {1.4}Выбор модели данных для базы данных}{12}{section.1.4}%
+\contentsline {paragraph}{Иерархическая модель}{13}{paragraph*.11}%
+\contentsline {paragraph}{Сетевая модель}{13}{paragraph*.12}%
+\contentsline {paragraph}{Инвертированные списки}{13}{paragraph*.13}%
+\contentsline {paragraph}{Реляционная модель}{14}{paragraph*.14}%
+\contentsline {section}{\numberline {1.5}Выбор базы данных}{14}{section.1.5}%
+\contentsline {paragraph}{Строковые базы данных}{14}{paragraph*.15}%
+\contentsline {paragraph}{Колоночные базы данных}{14}{paragraph*.16}%
+\contentsline {section}{\numberline {1.6}Выбор системы управления базами данных}{15}{section.1.6}%
+\contentsline {paragraph}{Файл-серверные СУБД}{15}{paragraph*.17}%
+\contentsline {paragraph}{Клиент-серверные СУБД}{15}{paragraph*.18}%
+\contentsline {paragraph}{Встраиваемые СУБД}{16}{paragraph*.19}%
+\contentsline {section}{\numberline {1.7}Вывод}{16}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Конструкторский раздел}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Формализация сущностей системы}{17}{section.2.1}%
+\contentsline {paragraph}{Таблица Client}{17}{paragraph*.20}%
+\contentsline {paragraph}{Таблица User}{18}{paragraph*.22}%
+\contentsline {paragraph}{Таблица Event}{18}{paragraph*.24}%
+\contentsline {paragraph}{Таблица EventType}{18}{paragraph*.26}%
+\contentsline {paragraph}{Таблица Ad}{19}{paragraph*.28}%
+\contentsline {paragraph}{Таблица Schedule}{20}{paragraph*.30}%
+\contentsline {section}{\numberline {2.2}Домены}{20}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Ролевая модель на уровне базы данных}{21}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Разработка табличной функции}{22}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Вывод}{23}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Технологический раздел}{24}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Выбор СУБД}{24}{section.3.1}%
+\contentsline {paragraph}{Основные данные}{24}{paragraph*.34}%
+\contentsline {paragraph}{Аналитические данные}{24}{paragraph*.35}%
+\contentsline {paragraph}{Потоковые данные}{25}{paragraph*.36}%
+\contentsline {section}{\numberline {3.2}Выбор средств разработки серверной и клиентской частей ПО}{25}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Выбор средств реализации API}{26}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Взаимодействие компонентов и безопасность}{28}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Web-интерфейс}{29}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Тестирование}{29}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Вывод}{30}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Исследовательский раздел}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Постановка исследования}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Результаты исследования}{31}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Вывод}{33}{section.4.3}%
+\contentsline {chapter}{ЗАКЛЮЧЕНИЕ}{34}{chapter*.41}%
+\contentsline {chapter}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}{38}{chapter*.42}%
+\contentsline {chapter}{ПРИЛОЖЕНИЕ \numberline {\CYRA }SQL-скрипты}{39}{appendix.1.A}%
+\contentsline {chapter}{ПРИЛОЖЕНИЕ \numberline {\CYRB }Реализованный web-интерфейс}{44}{appendix.2.B}%
+\contentsline {chapter}{ПРИЛОЖЕНИЕ \numberline {\CYRV }Тестирование}{47}{appendix.3.C}%

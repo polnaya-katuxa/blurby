@@ -1,0 +1,858 @@
+openapi: 3.0.0
+info:
+  title: API for course project
+  version: 0.0.1
+
+paths:
+  /login:
+    post:
+      operationId: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+      responses:
+        "200":
+          description: login user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        default:
+          description: login user error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /register:
+    post:
+      operationId: Register
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+      responses:
+        "201":
+          description: register user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        default:
+          description: register user error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /events:
+    post:
+      operationId: CreateEvent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEventRequest'
+      responses:
+        "202":
+          description: create event
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateEventResponse'
+        default:
+          description: create event error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /filter:
+    post:
+      operationId: Filter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterRequest'
+      responses:
+        "200":
+          description: filter clients range
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterResponse'
+        default:
+          description: filter error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /users:
+    get:
+      operationId: GetUsers
+      responses:
+        "200":
+          description: get users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUsersResponse'
+        default:
+          description: get users error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /clients:
+    get:
+      operationId: GetClients
+      responses:
+        "200":
+          description: get clients
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClientsResponse'
+        default:
+          description: get clients error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /client:
+    delete:
+      operationId: Delete Client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteClientRequest'
+      responses:
+        "200":
+          description: delete client
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteClientResponse'
+        default:
+          description: delete client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    get:
+      operationId: Get Client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetClientRequest'
+      responses:
+        "200":
+          description: get client
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClientResponse'
+        default:
+          description: get client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      operationId: Create Client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateClientRequest'
+      responses:
+        "201":
+          description: create client
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateClientResponse'
+        default:
+          description: grant user admin error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /stats:
+    get:
+      operationId: Get Client Stats
+      responses:
+        "200":
+          description: get client stats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetClientStatsResponse'
+        default:
+          description: get client stats error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /user/id:
+    get:
+      operationId: Get User By ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetUserByIDRequest'
+      responses:
+        "200":
+          description: get user by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserResponse'
+        default:
+          description: get user by id error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /user:
+    delete:
+      operationId: Delete User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteUserRequest'
+      responses:
+        "200":
+          description: delete user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteUserResponse'
+        default:
+          description: delete user error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    get:
+      operationId: Get User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetUserRequest'
+      responses:
+        "200":
+          description: get user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserResponse'
+        default:
+          description: get user error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      operationId: Grant User Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrantAdminRequest'
+      responses:
+        "200":
+          description: grant user admin
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrantAdminResponse'
+        default:
+          description: grant user admin error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /event_types:
+    post:
+      operationId: Create event type
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEventTypeRequest'
+      responses:
+        "201":
+          description: create event type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateEventTypeResponse'
+        default:
+          description: create event type error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    get:
+      operationId: Get event types
+      responses:
+        "202":
+          description: get event types
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetEventTypesResponse'
+        default:
+          description: get event types error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /ads:
+    post:
+      operationId: Create ad
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAdRequest'
+      responses:
+        "201":
+          description: create ad
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAdResponse'
+        default:
+          description: create ad error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    get:
+      operationId: Get ads
+      responses:
+        "202":
+          description: get ads
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAdsResponse'
+        default:
+          description: get ad error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /users/me:
+    get:
+      operationId: UserInfo
+      responses:
+        "200":
+          description: user info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInfoResponse'
+        default:
+          description: user info error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    EventType:
+      type: object
+      title: Event
+      required:
+        - name
+        - alias
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        alias:
+          type: string
+
+    Event:
+      type: object
+      title: Event
+      required:
+        - clientID
+        - alias
+      properties:
+        clientID:
+          type: string
+        alias:
+          type: string
+
+    User:
+      type: object
+      title: User
+      required:
+        - login
+        - isAdmin
+      properties:
+        id:
+          type: string
+        login:
+          type: string
+        isAdmin:
+          type: boolean
+
+    Client:
+      type: object
+      title: Client
+      required:
+        - id
+        - name
+        - surname
+        - patronymic
+        - gender
+        - birth_date
+        - registration_date
+        - email
+        - data
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        patronymic:
+          type: string
+        gender:
+          type: string
+        birth_date:
+          type: string
+        registration_date:
+          type: string
+        email:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: string
+
+    FieldFilter:
+      type: object
+      title: FieldFilter
+      properties:
+        field:
+          type: string
+        cmp:
+          type: string
+        value1:
+          type: string
+        value2:
+          type: string
+
+    EventFilter:
+      type: object
+      title: EventFilter
+      properties:
+        alias:
+          type: string
+        span:
+          type: string
+        rate:
+          type: integer
+
+    ClientStats:
+      type: object
+      title: ClientStats
+      properties:
+        num:
+          type: integer
+        avgAge:
+          type: integer
+
+    AdStat:
+      type: object
+      title: AdStat
+      required:
+        - num
+        - date
+      properties:
+        num:
+          type: integer
+        date:
+          type: string
+
+    Filter:
+      type: object
+      title: Filter
+      required:
+        - type
+        - filter
+      properties:
+        type:
+          type: string
+        filter:
+          oneOf:
+            - $ref: '#/components/schemas/EventFilter'
+            - $ref: '#/components/schemas/FieldFilter'
+
+    Schedule:
+      type: object
+      title: Schedule
+      required:
+        - span
+      properties:
+        periodic:
+          type: boolean
+        finished:
+          type: boolean
+        nextTime:
+          type: string
+        span:
+          type: string
+
+    Ad:
+      type: object
+      title: Ad
+      required:
+        - content
+        - schedule
+        - userID
+      properties:
+        content:
+          type: string
+        create_time:
+          type: string
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        userID:
+          type: string
+        schedule:
+          $ref: '#/components/schemas/Schedule'
+
+    UserInfoResponse:
+      type: object
+      title: UserInfoResponse
+      required:
+        - user
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+
+    CreateEventRequest:
+      type: object
+      title: CreateEventRequest
+      required:
+        - event
+      properties:
+        event:
+          $ref: '#/components/schemas/Event'
+
+    CreateEventResponse:
+      type: object
+      title: CreateEventResponse
+      required:
+        - passed
+      properties:
+        passed:
+          type: boolean
+
+    CreateClientRequest:
+      type: object
+      title: CreateClientRequest
+      required:
+        - client
+      properties:
+        client:
+          $ref: '#/components/schemas/Client'
+
+    CreateClientResponse:
+      type: object
+      title: CreateClientResponse
+      required:
+        - created
+      properties:
+        created:
+          type: boolean
+
+    CreateEventTypeRequest:
+      type: object
+      title: CreateEventTypeRequest
+      required:
+        - event_type
+      properties:
+        event_type:
+          $ref: '#/components/schemas/EventType'
+
+    CreateEventTypeResponse:
+      type: object
+      title: CreateEventTypeResponse
+      required:
+        - created
+      properties:
+        created:
+          type: boolean
+
+    GetEventTypesResponse:
+      type: object
+      title: GetEventTypesResponse
+      required:
+        - event_types
+      properties:
+        event_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventType'
+
+    DeleteClientRequest:
+      type: object
+      title: DeleteClientRequest
+      required:
+        - id
+      properties:
+        id:
+          type: string
+
+    DeleteClientResponse:
+      type: object
+      title: DeleteClientResponse
+      required:
+        - deleted
+      properties:
+        deleted:
+          type: boolean
+
+    GetClientRequest:
+      type: object
+      title: GetClientRequest
+      required:
+        - id
+      properties:
+        id:
+          type: string
+
+    GetClientStatsResponse:
+      type: object
+      title: GetClientStatsResponse
+      required:
+        - clientStats
+        - adStats
+      properties:
+        clientStats:
+          $ref: '#/components/schemas/ClientStats'
+        adStats:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdStat'
+
+    GetClientResponse:
+      type: object
+      title: GetClientResponse
+      required:
+        - client
+      properties:
+        client:
+          $ref: '#/components/schemas/Client'
+
+    CreateAdRequest:
+      type: object
+      title: CreateAdRequest
+      required:
+        - ad
+      properties:
+        ad:
+          $ref: '#/components/schemas/Ad'
+
+    CreateAdResponse:
+      type: object
+      title: CreateAdResponse
+      required:
+        - created
+      properties:
+        created:
+          type: boolean
+
+    GetAdsResponse:
+      type: object
+      title: GetAdsResponse
+      required:
+        - ads
+      properties:
+        ads:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ad'
+
+    GetClientsResponse:
+      type: object
+      title: GetClientsResponse
+      required:
+        - clients
+      properties:
+        clients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Client'
+
+    FilterRequest:
+      type: object
+      title: FilterRequest
+      required:
+        - filters
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+
+    FilterResponse:
+      type: object
+      title: FilterResponse
+      required:
+        - count
+      properties:
+        count:
+          type: integer
+
+    GetUsersResponse:
+      type: object
+      title: GetUsersResponse
+      required:
+        - users
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+
+    AuthRequest:
+      type: object
+      title: AuthRequest
+      required:
+        - login
+        - password
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+
+    AuthResponse:
+      type: object
+      title: AuthResponse
+      required:
+        - token
+      properties:
+        token:
+          type: string
+
+    DeleteUserRequest:
+      type: object
+      title: DeleteUserRequest
+      required:
+        - login
+      properties:
+        login:
+          type: string
+
+    DeleteUserResponse:
+      type: object
+      title: DeleteUserResponse
+      required:
+        - deleted
+      properties:
+        deleted:
+          type: boolean
+
+    GrantAdminRequest:
+      type: object
+      title: GrantAdminRequest
+      required:
+        - login
+      properties:
+        login:
+          type: string
+
+    GrantAdminResponse:
+      type: object
+      title: GrantAdminResponse
+      required:
+        - granted
+      properties:
+        granted:
+          type: boolean
+
+    GetUserRequest:
+      type: object
+      title: GetUserRequest
+      required:
+        - login
+      properties:
+        login:
+          type: string
+
+    GetUserByIDRequest:
+      type: object
+      title: GetUserByIDRequest
+      required:
+        - id
+      properties:
+        id:
+          type: string
+
+    GetUserResponse:
+      type: object
+      title: GetUserResponse
+      required:
+        - user
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+
+    ErrorResponse:
+      type: object
+      title: ErrorResponse
+      required:
+        - message
+        - systemMessage
+      properties:
+        message:
+          type: string
+          example: "Cannot login."
+        systemMessage:
+          type: string

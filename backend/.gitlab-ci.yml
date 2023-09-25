@@ -1,0 +1,102 @@
+stages:
+  - lint
+  - test
+  - research
+  - deploy
+
+Lint:
+  stage: lint
+  image: golangci/golangci-lint:v1.52.2
+  script:
+    - go mod tidy
+    - make lint
+
+Test:
+  stage: test
+  needs:
+    - Lint
+  image: docker:24.0.2-dind-alpine3.18
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  services:
+    - docker:dind
+  before_script: 
+    - apk add make
+    - apk add go
+  script:
+    - go mod tidy
+    - make test
+
+Research:
+  stage: research
+  image: golang:alpine3.18
+  timeout: 12h
+  needs:
+    - Test
+  before_script: 
+    - apk add gnuplot
+    - apk add make
+  script:
+    - go mod tidy
+    - make research
+    - gnuplot -persist scripts/plot.gpi 
+  artifacts:
+    paths:
+      - plot.pdf
+      - pg.txt
+      - ch.txt
+    expire_in: 30 days
+
+Deploy Windows (amd64):
+  stage: deploy
+  image: golang:1.19
+  needs:
+    - Test
+  script:
+    - go mod tidy
+    - env GOOS=windows GOARCH=amd64 go build -o coursework-back.exe cmd/coursework/main.go
+  artifacts:
+    paths:
+      - coursework-back.exe
+    expire_in: 30 days
+
+Deploy Linux (amd64):
+  stage: deploy
+  image: golang:1.19
+  needs:
+    - Test
+  script:
+    - go mod tidy
+    - env GOOS=linux GOARCH=amd64 go build -o coursework-back cmd/coursework/main.go
+  artifacts:
+    paths:
+      - coursework-back
+    expire_in: 30 days
+
+Deploy Darwin (amd64):
+  stage: deploy
+  image: golang:1.19
+  needs:
+    - Test
+  script:
+    - go mod tidy
+    - env GOOS=darwin GOARCH=amd64 go build -o coursework-back cmd/coursework/main.go
+  artifacts:
+    paths:
+      - coursework-back
+    expire_in: 30 days
+
+Deploy Darwin (arm64):
+  stage: deploy
+  image: golang:1.19
+  needs:
+    - Test
+  script:
+    - go mod tidy
+    - env GOOS=darwin GOARCH=arm64 go build -o coursework-back cmd/coursework/main.go
+  artifacts:
+    paths:
+      - coursework-back
+    expire_in: 30 days

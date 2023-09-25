@@ -1,0 +1,16 @@
+docs/report/*.bbl
+docs/report/*.bcf
+docs/report/*.blg
+docs/report/*.log
+docs/report/*.out
+docs/report/*.run.xml
+docs/report/*.synctex.gz
+frontend/server/static/
+**/*.aux
+/backend/tech.log
+/backend/deployments/pgdata/
+/backend/deployments/chdata/
+/backend/bin/
+/backend/configs/http_config.yml
+/idea/
+**/.DS_Store

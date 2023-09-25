@@ -1,0 +1,16 @@
+reset
+
+set terminal pdf
+
+set output "plot.pdf"
+
+set size ratio 0.5625
+
+set xlabel "Количество фильтров"
+
+set ylabel "Время, мс"
+
+set grid
+
+plot "pg.txt" title 'Postgres' with lp lw 2 lt rgb "dark-pink", \
+     "ch.txt" title 'ClickHouse' with lp lw 2 lt rgb "slateblue1",

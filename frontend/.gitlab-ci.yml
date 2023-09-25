@@ -1,0 +1,96 @@
+stages:
+  - lint
+  - build
+  - deploy
+
+Lint:
+  stage: lint
+  image: node:lts
+  script:
+    - npm install
+    - npm run lint
+
+Build:
+  stage: build
+  needs:
+    - Lint
+  image: node:lts
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 30 days
+
+Deploy Windows (amd64):
+  stage: deploy
+  image: golang:1.19
+  needs:
+    - Build
+  script:
+    - cd server
+    - go mod tidy
+    - env GOOS=windows GOARCH=amd64 go build -o front.exe main.go
+    - cd ..
+    - mv dist static
+    - mv server/front.exe front.exe
+  artifacts:
+    paths:
+      - front.exe
+      - static
+    expire_in: 30 days
+
+Deploy Linux (amd64):
+  stage: deploy
+  image: golang:1.19
+  needs:
+    - Build
+  script:
+    - cd server
+    - go mod tidy
+    - env GOOS=linux GOARCH=amd64 go build -o front main.go
+    - cd ..
+    - mv dist static
+    - mv server/front front
+  artifacts:
+    paths:
+      - front
+      - static
+    expire_in: 30 days
+
+Deploy Darwin (amd64):
+  stage: deploy
+  image: golang:1.19
+  needs:
+    - Build
+  script:
+    - cd server
+    - go mod tidy
+    - env GOOS=darwin GOARCH=amd64 go build -o front main.go
+    - cd ..
+    - mv dist static
+    - mv server/front front
+  artifacts:
+    paths:
+      - front
+      - static
+    expire_in: 30 days
+
+Deploy Darwin (arm64):
+  stage: deploy
+  image: golang:1.19
+  needs:
+    - Build
+  script:
+    - cd server
+    - go mod tidy
+    - env GOOS=darwin GOARCH=arm64 go build -o front main.go
+    - cd ..
+    - mv dist static
+    - mv server/front front
+  artifacts:
+    paths:
+      - front
+      - static
+    expire_in: 30 days
